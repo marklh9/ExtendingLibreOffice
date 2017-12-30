@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dlg:window PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "dialog.dtd">
+<dlg:window xmlns:dlg="http://openoffice.org/2000/dialog" xmlns:script="http://openoffice.org/2000/script" dlg:style-id="0" dlg:id="OptionDialog" dlg:left="150" dlg:top="150" dlg:width="260" dlg:height="185" dlg:help-text="&amp;0.OptionDialog.HelpText" dlg:closeable="true" dlg:moveable="true" dlg:title="&amp;1.OptionDialog.Title" dlg:withtitlebar="false">
+ <dlg:styles>
+  <dlg:style dlg:style-id="0" dlg:background-color="0xbce4e5"/>
+ </dlg:styles>
+ <dlg:bulletinboard>
+  <dlg:checkbox dlg:style-id="0" dlg:id="CheckBox1" dlg:tab-index="0" dlg:left="27" dlg:top="28" dlg:width="60" dlg:height="10" dlg:help-text="&amp;2.OptionDialog.CheckBox1.HelpText" dlg:value="&amp;3.OptionDialog.CheckBox1.Label" dlg:checked="false"/>
+ </dlg:bulletinboard>
+</dlg:window>
