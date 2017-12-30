@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://openoffice.org/extensions/description/2006" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <version value="v17.1217"/>
+    <identifier value="addons.ExtendingLibreOffice.ToolbarSample"/>
+        <dependencies/>
+	<display-name>
+		<name xml:lang="en-US">Toolbar Sample</name>
+	</display-name>
+	<extension-description>
+		<src xml:lang="en-US" xlink:href="description.txt" />
+	</extension-description>
+	<registration>
+    	<simple-license accept-by="admin" suppress-on-update="true" >
+      	<license-text xlink:href="license.txt" />
+    	</simple-license>
+	</registration>
+	<icon>
+    	<default xlink:href="extension-logo.png" />
+	</icon>
+</description>
