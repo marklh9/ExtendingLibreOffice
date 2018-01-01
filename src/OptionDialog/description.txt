@@ -1,1 +1,3 @@
-This is an example to create a customized toolbar.
+This is an example to create a option dailog. The dialog can be 
+accessed via "Option" button in the extension manager or 
+from Tools > Settings > LibreOffice Writer > Dummy Setting.
