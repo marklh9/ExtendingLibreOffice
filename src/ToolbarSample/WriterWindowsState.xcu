@@ -4,11 +4,19 @@ oor:name="WriterWindowState"
 oor:package="org.openoffice.Office.UI">
     <node oor:name="UIElements">
         <node oor:name="States">
-            <node oor:name="private:resource/toolbar/addons.ExtendingLibreOffice.ToolbarSample.Toolbar" oor:op="replace">
+            <node oor:name="private:resource/toolbar/addon_addons.ExtendingLibreOffice.ToolbarSample.Toolbar" oor:op="replace">
                 <prop oor:name="UIName" oor:type="xs:string">
                     <value>Toolbar Sample</value>
+                    <value xml:lang="zh-TW">工具列範例</value>
+                    <value xml:lang="en-US">Toolbar Sample</value>
                 </prop>
                 <prop oor:name="ContextSensitive" oor:type="xs:boolean">
+                    <value>false</value>
+                </prop>
+                <prop oor:name="HideFromToolbarMenu" oor:type="xs:boolean">
+                    <value>false</value>
+                </prop>
+                <prop oor:name="Docked" oor:type="xs:boolean">
                     <value>false</value>
                 </prop>
                 <prop oor:name="Visible" oor:type="xs:boolean">
