@@ -70,6 +70,11 @@ class FeatureEventWrapper():
         self.event.State = CreateControlCommand( "AddEntry", args )
         return self.event
 
+    def set_dropdown_lines(self, lines ):
+        args  = (CreateNamedValue("Lines", lines), )
+        self.event.State = CreateControlCommand( "SetDropDownLines", args )
+        return self.event
+
     def set_state(self, state ):
         self.event.State = state
         return self.event
@@ -107,6 +112,10 @@ class SampleDispatch(unohelper.Base, XDispatch):
         listener.statusChanged( new_event(self, url).add_entry( "Apple" ) )
         listener.statusChanged( new_event(self, url).add_entry( "Banana" ) )
         listener.statusChanged( new_event(self, url).add_entry( "Orange" ) )
+        listener.statusChanged( new_event(self, url).add_entry( "Purple" ) )
+        listener.statusChanged( new_event(self, url).add_entry( "PineApple" ) )
+        listener.statusChanged( new_event(self, url).add_entry( "Mango" ) )
+        listener.statusChanged( new_event(self, url).set_dropdown_lines( 2 ) )
 
     def init_text(self, listener, url,text):
         listener.statusChanged( new_event(self, url).set_text(text) )
