@@ -6,10 +6,10 @@
         oor:package="org.openoffice.Office">
     <node oor:name="AddonUI">
         <node oor:name="OfficeToolBar">
-            <node oor:name="addons.ExtendingLibreOffice.ProtocolHandler.Toolbar" oor:op="replace">
+            <node oor:name="addons.ExtendingLibreOffice.ComplexToolbar.Toolbar" oor:op="replace">
                 <node oor:name="B01" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:ImageButton</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:ImageButton</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>Image Button</value>
@@ -27,7 +27,7 @@
                 </node>
                 <node oor:name="B02" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:Combobox</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:Combobox</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>Combobox</value>
@@ -45,7 +45,7 @@
                 </node>
                 <node oor:name="B03" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:Dropdownbox</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:Dropdownbox</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>Dropdownbox</value>
@@ -63,7 +63,7 @@
                 </node>
                 <node oor:name="B04" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:Spinfield</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:Spinfield</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>Spinfield</value>
@@ -81,7 +81,7 @@
                 </node>
                 <node oor:name="B05" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:Editfield</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:Editfield</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>Editfield</value>
@@ -99,7 +99,7 @@
                 </node>
                 <node oor:name="B06" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:DropdownButton</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:DropdownButton</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>DropdownButton</value>
@@ -117,7 +117,7 @@
                 </node>
                 <node oor:name="B07" oor:op="replace">
                     <prop oor:name="URL" oor:type="xs:string">
-                        <value>Dummy:ToggleDropdownButton</value>
+                        <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:ToggleDropdownButton</value>
                     </prop>
                     <prop oor:name="Title" oor:type="xs:string">
                         <value>ToggleDropdownButton</value>
@@ -136,9 +136,9 @@
             </node>
         </node>
         <node oor:name="Images">
-            <node oor:name="addons.ExtendingLibreOffice.ProtocolHandler.Images01" oor:op="replace">
+            <node oor:name="addons.ExtendingLibreOffice.ComplexToolbar.Images01" oor:op="replace">
                 <prop oor:name="URL">
-                    <value>Dummy:image</value>
+                    <value>addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:image</value>
                 </prop>
                 <node oor:name="UserDefinedImages">
                     <prop oor:name="ImageBigURL" oor:type="xs:string">

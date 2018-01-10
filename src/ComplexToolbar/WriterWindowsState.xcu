@@ -4,7 +4,7 @@ oor:name="WriterWindowState"
 oor:package="org.openoffice.Office.UI">
     <node oor:name="UIElements">
         <node oor:name="States">
-            <node oor:name="private:resource/toolbar/addon_addons.ExtendingLibreOffice.ProtocolHandler.Toolbar" oor:op="replace">
+            <node oor:name="private:resource/toolbar/addon_addons.ExtendingLibreOffice.ComplexToolbar.Toolbar" oor:op="replace">
                 <prop oor:name="UIName" oor:type="xs:string">
                     <value>Complex Toolbar Sample Based on Protocol Handler</value>
                     <value xml:lang="zh-TW">Complex 工具列範例 Based On Protocol Handler</value>

@@ -1,1 +1,1 @@
-A Sample Protocol Handler
+A complex toolbar example.

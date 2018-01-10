@@ -91,10 +91,8 @@ class SampleDispatch(unohelper.Base, XDispatch):
             #show_msg("dispatch", "Hello, there!", self.toolkit, self.frame)
             logging.debug("dispatch url.Path="+url.Path)
             if url.Path == "ImageButton" and self.image_button is not None:
-                image_url = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ProtocolHandler/star.png"
+                image_url = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
                 self.set_image(self.image_button, url, image_url )
-            if url.Path == "Dropdownbox" and self.list_item is not None:
-                self.init_list(self.list_item , url )
         except:
             logging.exception("dispatch")
         finally:
@@ -124,7 +122,7 @@ class SampleDispatch(unohelper.Base, XDispatch):
             #show_msg("dispatch", "Hello, there!", self.toolkit, self.frame)
             logging.debug("addStatusListener Path="+url.Path)
             if url.Path == "ImageButton":
-                image_url = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ProtocolHandler/star.png"
+                image_url = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
                 self.set_image(listener, url, image_url )
                 self.image_button = listener
             if url.Path == "Combobox":
@@ -162,5 +160,5 @@ class SampleDispatch(unohelper.Base, XDispatch):
 g_ImplementationHelper = unohelper.ImplementationHelper()
 g_ImplementationHelper.addImplementation(
     SampleDispatch,
-    "addons.ExtendingLibreOffice.ProtocolHandler.SampleDispatch",
+    "addons.ExtendingLibreOffice.ComplexToolbar.SampleDispatch",
     ("com.sun.star.frame.XDispatch",), )

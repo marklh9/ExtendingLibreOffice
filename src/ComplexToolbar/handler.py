@@ -5,7 +5,7 @@ from com.sun.star.frame import XDispatchProvider
 from com.sun.star.lang import XInitialization
 
 
-#logging.basicConfig(filename='/tmp/protocl_handler.txt', level=logging.DEBUG)
+logging.basicConfig(filename='/tmp/protocl_handler.txt', level=logging.DEBUG)
 
 class SampleHandler(unohelper.Base, XDispatchProvider, XInitialization):
     def __init__(self, ctx):
@@ -20,10 +20,10 @@ class SampleHandler(unohelper.Base, XDispatchProvider, XInitialization):
         return
 
     def queryDispatch(self, url, target, searchflags):
-        if url.Protocol == "Dummy:":
+        if url.Protocol == "addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:":
             smgr = self.ctx.getServiceManager()
             dispatch = smgr.createInstanceWithArgumentsAndContext(
-                "addons.ExtendingLibreOffice.ProtocolHandler.SampleDispatch",
+                "addons.ExtendingLibreOffice.ComplexToolbar.SampleDispatch",
                 (self.frame, ), self.ctx)
             return dispatch
         return None
@@ -38,5 +38,5 @@ class SampleHandler(unohelper.Base, XDispatchProvider, XInitialization):
 g_ImplementationHelper = unohelper.ImplementationHelper()
 g_ImplementationHelper.addImplementation(
     SampleHandler,
-    "addons.ExtendingLibreOffice.ProtocolHandler.SampleHandler",
+    "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler",
     ("com.sun.star.frame.ProtocolHandler",), )
