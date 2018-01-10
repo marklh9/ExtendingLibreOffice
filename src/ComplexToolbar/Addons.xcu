@@ -58,7 +58,7 @@
                         <value>com.sun.star.text.TextDocument</value>
                     </prop>
                     <prop oor:name="ControlType" oor:type="xs:string">
-                        <value>DropdownBox</value>
+                        <value>Dropdownbox</value>
                     </prop>
                 </node>
                 <node oor:name="B04" oor:op="replace">
