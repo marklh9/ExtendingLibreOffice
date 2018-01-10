@@ -10,6 +10,15 @@ Target, etc, the most important property here is ControlType, which specifies th
 * WriterWindowsState.xcu: this is essential for defining a toolbar, as we what we did in ToolbarSample.
 * handler.py: our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler".
 * dispatch.py: our dispatch object that does the real job.
+## The dispatch object
+The dispatch object implements the XDispatch interface. According to
+API document:
+>> serves state information of objects which can be connected to controls 
+>> (e.g. toolbox controls).
+>> Each state change is to be broadcasted to all registered status listeners. The first notification should be performed synchronously from XDispatch::addStatusListener(); if not, controls may flicker. State listener must be aware of this synchronous notification. 
+>> The state consists of enabled/disabled and a short descriptive text of the function (e.g. "undo insert character"). It is to be broadcasted whenever this state changes or the control should re-get the value for the URL it is connected to. Additionally, a context-switch-event is to be broadcasted whenever the object may be out of scope, to force the state listener to requery the XDispatch. 
+
+When addStatusListener is invked, the dispatch object can obtain the instance of the toolbar control, and send control command to the control when status changes.
 
 ## Send control command to various contorls
 
@@ -44,3 +53,4 @@ for Combobox and Dropdownbox.
 * [XStatusListener Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XStatusListener.html)
 * [FeaturedStateEvent Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1FeatureStateEvent.html#a1545061c08231d50fabef7514f9584d3)
 * [ControlCommand Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1ControlCommand.html)
+* [XDispatch Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XDispatch.html)
