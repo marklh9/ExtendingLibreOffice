@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<oor:component-data
+        xmlns:oor="http://openoffice.org/2001/registry"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        oor:name="Addons"
+        oor:package="org.openoffice.Office">
+    <node oor:name="AddonUI">
+        <node oor:name="OfficeToolBar">
+            <node oor:name="addons.ExtendingLibreOffice.ProtocolHandler.Toolbar" oor:op="replace">
+                <node oor:name="B01" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:ImageButton</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>Image Button</value>
+                        <value xml:lang="en-US">Image Button</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>ImageButton</value>
+                    </prop>
+                </node>
+                <node oor:name="B02" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:Combobox</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>Combobox</value>
+                        <value xml:lang="en-US">Combobox</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>Combobox</value>
+                    </prop>
+                </node>
+                <node oor:name="B03" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:Dropdownbox</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>Dropdownbox</value>
+                        <value xml:lang="en-US">Dropdownbox</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>DropdownBox</value>
+                    </prop>
+                </node>
+                <node oor:name="B04" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:Spinfield</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>Spinfield</value>
+                        <value xml:lang="en-US">Spinfield</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>Spinfield</value>
+                    </prop>
+                </node>
+                <node oor:name="B05" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:Editfield</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>Editfield</value>
+                        <value xml:lang="en-US">Editfield</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>Editfield</value>
+                    </prop>
+                </node>
+                <node oor:name="B06" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:DropdownButton</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>DropdownButton</value>
+                        <value xml:lang="en-US">DropdownButton</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>DropdownButton</value>
+                    </prop>
+                </node>
+                <node oor:name="B07" oor:op="replace">
+                    <prop oor:name="URL" oor:type="xs:string">
+                        <value>Dummy:ToggleDropdownButton</value>
+                    </prop>
+                    <prop oor:name="Title" oor:type="xs:string">
+                        <value>ToggleDropdownButton</value>
+                        <value xml:lang="en-US">ToggleDropdownButton</value>
+                    </prop>
+                    <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                    </prop>
+                    <prop oor:name="Context" oor:type="xs:string">
+                        <value>com.sun.star.text.TextDocument</value>
+                    </prop>
+                    <prop oor:name="ControlType" oor:type="xs:string">
+                        <value>ToggleDropdownButton</value>
+                    </prop>
+                </node>
+            </node>
+        </node>
+        <node oor:name="Images">
+            <node oor:name="addons.ExtendingLibreOffice.ProtocolHandler.Images01" oor:op="replace">
+                <prop oor:name="URL">
+                    <value>Dummy:image</value>
+                </prop>
+                <node oor:name="UserDefinedImages">
+                    <prop oor:name="ImageBigURL" oor:type="xs:string">
+                        <value>%origin%/star.png</value>
+                    </prop>
+                </node>
+            </node>
+        </node>
+    </node>
+</oor:component-data>
