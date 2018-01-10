@@ -135,7 +135,7 @@ class SampleDispatch(unohelper.Base, XDispatch):
                 self.set_values(listener, url, 10, 2, 0, 20)
             if url.Path == "Editfield":
                 self.init_text(listener, url, "Dummy text for editfield")
-            if url.Path == "ToggleButton":
+            if url.Path == "Dropdownbox":
                 self.init_list(listener,url)
             if url.Path == "DropdownButton":
                 self.init_list(listener,url)
