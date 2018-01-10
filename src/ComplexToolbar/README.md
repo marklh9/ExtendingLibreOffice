@@ -7,7 +7,7 @@ which create a dummy protocol that handles a specific url.
 associate the scheme with our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler".
 * Addons.xcu: the file defined a toolbar, with various kind of toolbar controls. Apart from generic options like URL, Title, 
 Target, etc, the most important property here is ControlType, which specifies the type of the control.
-* WriterWindowsState.xcu: this is essential for defining a toolbar, as we what we did in ToolbarSample.
+* WriterWindowsState.xcu: this is essential for defining a toolbar, as what we did in ToolbarSample.
 * handler.py: our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler".
 * dispatch.py: our dispatch object that does the real job.
 ## The dispatch object
@@ -47,10 +47,12 @@ Dropdownbox, Dropdownbutton, ToggleDropdownbox
 * "SetDropDownLines" ( Lines:long ): to set the number of visible lines of the drop down list
 for Combobox and Dropdownbox.
 
+## Receive control event from the contorl
 
 ## Reference
 * [Generic UNO Interfaces for complex toolbar controls](http://wiki.openoffice.org/wiki/Framework/Article/Generic_UNO_Interfaces_for_complex_toolbar_controls)
+* [XDispatch Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XDispatch.html)
 * [XStatusListener Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XStatusListener.html)
 * [FeaturedStateEvent Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1FeatureStateEvent.html#a1545061c08231d50fabef7514f9584d3)
 * [ControlCommand Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1ControlCommand.html)
-* [XDispatch Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XDispatch.html)
+* [XControlNotificatioonlistener Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XControlNotificationListener.html)
