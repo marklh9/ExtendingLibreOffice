@@ -5,7 +5,7 @@ from com.sun.star.frame import XDispatchProvider
 from com.sun.star.lang import XInitialization
 
 
-logging.basicConfig(filename='/tmp/protocl_handler.txt', level=logging.DEBUG)
+#logging.basicConfig(filename='/tmp/complex_toolbar.txt', level=logging.DEBUG)
 
 class SampleHandler(unohelper.Base, XDispatchProvider, XInitialization):
     def __init__(self, ctx):
