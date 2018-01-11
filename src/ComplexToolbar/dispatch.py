@@ -1,5 +1,6 @@
 import logging
 import unohelper
+import uno
 from com.sun.star.frame import ControlCommand
 from com.sun.star.beans import NamedValue
 from com.sun.star.frame import FeatureStateEvent
@@ -104,18 +105,17 @@ class SampleDispatch(unohelper.Base, XDispatch):
             return
 
 
-    def init_list_x(self, listener, url):
-        thelist =  ("Apple","Banana","Orange")
+    def init_list(self, listener, url):
+        # Force typing to prevent it from becoming sequence of Any objects.
+        thelist =  uno.Any( "[]string", ("Apple","Banana","Orange") )
         listener.statusChanged( new_event(self, url).set_list( thelist ) )
 
-    def init_list(self, listener, url):
-        listener.statusChanged( new_event(self, url).add_entry( "Apple" ) )
-        listener.statusChanged( new_event(self, url).add_entry( "Banana" ) )
-        listener.statusChanged( new_event(self, url).add_entry( "Orange" ) )
-        listener.statusChanged( new_event(self, url).add_entry( "Purple" ) )
-        listener.statusChanged( new_event(self, url).add_entry( "PineApple" ) )
-        listener.statusChanged( new_event(self, url).add_entry( "Mango" ) )
-        listener.statusChanged( new_event(self, url).set_dropdown_lines( 2 ) )
+        listener.statusChanged( new_event(self, url).add_entry( "She" ) )
+        listener.statusChanged( new_event(self, url).add_entry( "Sell" ) )
+        listener.statusChanged( new_event(self, url).add_entry( "Seashell" ) )
+        listener.statusChanged( new_event(self, url).add_entry( "Seashore" ) )
+
+        listener.statusChanged( new_event(self, url).set_dropdown_lines( 3 ) )
 
     def init_text(self, listener, url,text):
         listener.statusChanged( new_event(self, url).set_text(text) )
