@@ -48,7 +48,7 @@ class SampleDispatch(unohelper.Base, XDispatch):
                 x.send_command( "SetDropDownLines", "Lines", 2 )
 
             if url.Path == "Spinfield":
-                args = { "Value" : value, "Step" : step, "LowerLimit": lower, "UpperLimit" : upper }
+                args = { "Value" : 10, "Step" : 2, "LowerLimit": 0, "UpperLimit" : 20 }
                 x.send_command_with_args( "SetValues", args )
 
             if url.Path == "Editfield" or url.Path == "Combobox":
