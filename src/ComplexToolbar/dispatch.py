@@ -15,14 +15,15 @@ class SampleDispatch(unohelper.Base, XDispatch):
         self.frame = args
         self.toolkit = ctx.getServiceManager(). \
             createInstanceWithContext("com.sun.star.awt.Toolkit", ctx)
-        self.image_button = None
-        self.list_item = None
+        self.listeners = {}
 
     def dispatch(self, url, args):
         try:
+            listener = self.listeners[ url.Path ]
             logging.debug("dispatch url.Path="+url.Path)
-            if url.Path == "ImageButton" and self.image_button is not None:
-                StatusListenerWrapper( listener, url ).send_command( "SetImage", "URL", IMAGE_URL )
+            if url.Path == "ImageButton" and listener is not None:
+                x = StatusListenerWrapper( listener, url )
+                x.send_command( "SetImage", "URL", IMAGE_URL )
         except:
             logging.exception("dispatch")
         finally:
@@ -33,9 +34,6 @@ class SampleDispatch(unohelper.Base, XDispatch):
         try:
             x = StatusListenerWrapper( listener, url )
             logging.debug("addStatusListener Path="+url.Path)
-            if url.Path == "ImageButton":
-                x.send_command( "SetImage", "URL", IMAGE_URL )
-                self.image_button = listener
 
             if url.Path == "Combobox" or \
                     url.Path == "Dropdownbox" or \
@@ -57,6 +55,8 @@ class SampleDispatch(unohelper.Base, XDispatch):
             if url.Path == "DropdownButton" or url.Path == "ToggleDropdownButton":
                 x.send_command( "CheckItemPos", "Pos", 2 )
 
+            self.listeners[ url.Path ] = listener
+
         except:
             logging.exception("dispatch")
         finally:
@@ -65,6 +65,7 @@ class SampleDispatch(unohelper.Base, XDispatch):
     def removeStatusListener(self, listener, url):
         try:
             logging.debug("removeStatusListener")
+            del self.listeners[ url.Path ]
         except:
             logging.exception("dispatch")
         finally:
