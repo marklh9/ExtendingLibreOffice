@@ -107,7 +107,7 @@ Because both *Combobox* and *Editfied* have an editable text field, they support
 TBD
 
 ## Reference
-* [Generic UNO Interfaces for complex toolbar controls](http://wiki.openoffice.org/wiki/Framework/Article/Generic*UNO_Interfaces_for_complex_toolbar*controls)
+* [Generic UNO Interfaces for complex toolbar controls](http://wiki.openoffice.org/wiki/Framework/Article/Generic_UNO_Interfaces_for_complex_toolbar_controls)
 * [XDispatch Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XDispatch.html)
 * [XStatusListener Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XStatusListener.html)
 * [FeaturedStateEvent Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1FeatureStateEvent.html)
