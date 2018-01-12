@@ -1,4 +1,3 @@
-import logging
 from com.sun.star.frame import ControlCommand
 from com.sun.star.beans import NamedValue
 from com.sun.star.frame import FeatureStateEvent
@@ -36,7 +35,6 @@ class FeatureEventWrapper():
         return self.event
 
     def set_image(self, image_url):
-        logging.debug("set_image image_url="+image_url)
         args  = (CreateNamedValue("URL", image_url), )
         self.event.State = CreateControlCommand( "SetImage", args )
         return self.event
@@ -58,7 +56,6 @@ class FeatureEventWrapper():
     def set_list(self, thelist):
         args  = (CreateNamedValue("List", thelist), )
         self.event.State = CreateControlCommand( "SetList", args )
-        logging.debug("set_list thelist="+str(thelist))
         return self.event
 
     def add_entry(self, text ):
