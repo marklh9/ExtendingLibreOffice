@@ -7,6 +7,8 @@ from feature_event import FeatureEventWrapper
 
 #logging.basicConfig(filename='/tmp/complex_toolbar.txt', level=logging.DEBUG)
 
+IMAGE_URL = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
+
 class StatusListenerWrapper():
     def __init__(self, listener, url):
         self.listener = listener
@@ -27,16 +29,6 @@ class StatusListenerWrapper():
         self.listener.statusChanged( event.set_state( command, state) )
         return self
 
-def init_list(x):
-    # Force typing to prevent it from becoming sequence of Any objects.
-    thelist = uno.Any( "[]string", ("Apple","Banana","Orange") )
-    x.send_command( "SetList", "List", thelist )
-    x.send_command( "AddEntry", "Text", "She" )
-    x.send_command( "AddEntry", "Text", "Sell" )
-    x.send_command( "AddEntry", "Text", "Seashell" )
-    x.send_command( "AddEntry", "Text", "Seashore" )
-    x.send_command( "SetDropDownLines", "Lines", 3 )
-
 class SampleDispatch(unohelper.Base, XDispatch):
     def __init__(self, ctx, args):
         self.ctx = ctx
@@ -48,54 +40,42 @@ class SampleDispatch(unohelper.Base, XDispatch):
 
     def dispatch(self, url, args):
         try:
-            #show_msg("dispatch", "Hello, there!", self.toolkit, self.frame)
             logging.debug("dispatch url.Path="+url.Path)
             if url.Path == "ImageButton" and self.image_button is not None:
-                image_url = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
-                self.set_image(self.image_button, url, image_url )
+                StatusListenerWrapper( listener, url ).send_command( "SetImage", "URL", IMAGE_URL )
         except:
             logging.exception("dispatch")
         finally:
             return
 
 
-    def init_text(self, listener, url,text):
-        x = StatusListenerWrapper( listener, url )
-        x.send_command( "SetText", "Text", text )
-
-    def set_values(self, listener, url, value, step, lower, upper):
-        args = { "Value" : value, "Step" : step, "LowerLimit": lower, "UpperLimit" : upper }
-        x = StatusListenerWrapper( listener, url )
-        x.send_command_with_args( "SetValues", args )
-
-    def set_image(self, listener, url, image_url):
-        x = StatusListenerWrapper( listener, url )
-
     def addStatusListener(self, listener, url):
         try:
             x = StatusListenerWrapper( listener, url )
-            #show_msg("dispatch", "Hello, there!", self.toolkit, self.frame)
             logging.debug("addStatusListener Path="+url.Path)
             if url.Path == "ImageButton":
-                image_url = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
-                self.set_image(listener, url, image_url )
+                x.send_command( "SetImage", "URL", IMAGE_URL )
                 self.image_button = listener
-            if url.Path == "Combobox":
-                init_list(x)
-                self.init_text(listener, url, "Dummy text for combobox")
-            if url.Path == "Dropdownbox":
-                init_list(x)
-                self.list_item = listener
+
+            if url.Path == "Combobox" or \
+                    url.Path == "Dropdownbox" or \
+                    url.Path == "DropdownButton" or \
+                    url.Path == "ToggleDropdownButton":
+                thelist = uno.Any( "[]string", ("Apple","Banana","Orange") )
+                x.send_command( "SetList", "List", thelist )
+                x.send_command( "AddEntry", "Text", "Peach" )
+                x.send_command( "AddEntry", "Text", "Melon" )
+                x.send_command( "SetDropDownLines", "Lines", 2 )
+
             if url.Path == "Spinfield":
-                self.set_values(listener, url, 10, 2, 0, 20)
-            if url.Path == "Editfield":
-                self.init_text(listener, url, "Dummy text for editfield")
-            if url.Path == "Dropdownbox":
-                init_list(x)
-            if url.Path == "DropdownButton":
-                init_list(x)
-            if url.Path == "ToggleDropdownButton":
-                init_list(x)
+                args = { "Value" : value, "Step" : step, "LowerLimit": lower, "UpperLimit" : upper }
+                x.send_command_with_args( "SetValues", args )
+
+            if url.Path == "Editfield" or url.Path == "Combobox":
+                x.send_command( "SetText", "Text", "Dummy Text" )
+
+            if url.Path == "DropdownButton" or url.Path == "ToggleDropdownButton":
+                x.send_command( "CheckItemPos", "Pos", 2 )
 
         except:
             logging.exception("dispatch")
@@ -104,7 +84,6 @@ class SampleDispatch(unohelper.Base, XDispatch):
 
     def removeStatusListener(self, listener, url):
         try:
-            #show_msg("dispatch", "Hello, there!", self.toolkit, self.frame)
             logging.debug("removeStatusListener")
         except:
             logging.exception("dispatch")
