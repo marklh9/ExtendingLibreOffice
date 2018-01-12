@@ -4,12 +4,13 @@ import uno
 
 from com.sun.star.frame import XDispatch
 from status_listener import StatusListenerWrapper
+from com.sun.star.frame import XControlNotificationListener
 
 #logging.basicConfig(filename='/tmp/complex_toolbar.txt', level=logging.DEBUG)
 
 IMAGE_URL = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
 
-class SampleDispatch(unohelper.Base, XDispatch):
+class SampleDispatch(unohelper.Base, XDispatch, XControlNotificationListener):
     def __init__(self, ctx, args):
         self.ctx = ctx
         self.frame = args
@@ -71,9 +72,13 @@ class SampleDispatch(unohelper.Base, XDispatch):
         finally:
             return
 
+    def controlEvent( self, event ):
+        pass
+
 
 g_ImplementationHelper = unohelper.ImplementationHelper()
 g_ImplementationHelper.addImplementation(
     SampleDispatch,
     "addons.ExtendingLibreOffice.ComplexToolbar.SampleDispatch",
-    ("com.sun.star.frame.XDispatch",), )
+    ("com.sun.star.frame.XDispatch",
+        "com.sun.star.frame.XControlNotificationListener"), )
