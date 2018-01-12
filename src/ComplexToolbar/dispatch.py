@@ -3,31 +3,11 @@ import unohelper
 import uno
 
 from com.sun.star.frame import XDispatch
-from feature_event import FeatureEventWrapper
+from status_listener import StatusListenerWrapper
 
 #logging.basicConfig(filename='/tmp/complex_toolbar.txt', level=logging.DEBUG)
 
 IMAGE_URL = "vnd.sun.star.extension://addons.ExtendingLibreOffice.ComplexToolbar/star.png"
-
-class StatusListenerWrapper():
-    def __init__(self, listener, url):
-        self.listener = listener
-        self.url = url
-
-    def send_command(self, command, name, value):
-        event = FeatureEventWrapper( self.url, True, False )
-        self.listener.statusChanged( event.set_command( command, name, value ) )
-        return self
-
-    def send_command_with_args(self, command, args):
-        event = FeatureEventWrapper( self.url, True, False )
-        self.listener.statusChanged( event.set_command_with_args( command, args ) )
-        return self
-
-    def change_state(self, state):
-        event = FeatureEventWrapper( self.url, True, False )
-        self.listener.statusChanged( event.set_state( command, state) )
-        return self
 
 class SampleDispatch(unohelper.Base, XDispatch):
     def __init__(self, ctx, args):
