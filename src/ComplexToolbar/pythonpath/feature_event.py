@@ -34,38 +34,33 @@ class FeatureEventWrapper():
     def get_event(self):
         return self.event
 
-    def set_image(self, image_url):
-        args  = (CreateNamedValue("URL", image_url), )
-        self.event.State = CreateControlCommand( "SetImage", args )
+    def set_command(self, command, argname, argvalue):
+        args  = (CreateNamedValue(argname, argvalue), )
+        self.event.State = CreateControlCommand( command, args )
         return self.event
 
-    def set_values(self, value, step, lower, upper):
-        a1 = CreateNamedValue( "Value", value)
-        a2 = CreateNamedValue( "Step", step)
-        a3 = CreateNamedValue( "UpperLimit", upper)
-        a4 = CreateNamedValue( "LowerLimit", lower)
-        args = (a1, a2, a3, a4, )
-        self.event.State = CreateControlCommand( "SetValues", args )
-        return self.event
+    def set_image(self, image_url):
+        return self.set_command( "SetImage", "URL", image_url )
 
     def set_text(self, text):
-        args  = (CreateNamedValue("Text", text), )
-        self.event.State = CreateControlCommand( "SetText", args )
-        return self.event
+        return self.set_command( "SetText", "Text", text )
 
     def set_list(self, thelist):
-        args  = (CreateNamedValue("List", thelist), )
-        self.event.State = CreateControlCommand( "SetList", args )
-        return self.event
+        return self.set_command( "SetList", "List", thelist )
 
     def add_entry(self, text ):
-        args  = (CreateNamedValue("Text", text), )
-        self.event.State = CreateControlCommand( "AddEntry", args )
-        return self.event
+        return self.set_command( "AddEntry", "Text", text )
 
     def set_dropdown_lines(self, lines ):
-        args  = (CreateNamedValue("Lines", lines), )
-        self.event.State = CreateControlCommand( "SetDropDownLines", args )
+        return self.set_command( "SetDropDownLines", "Lines", lines )
+
+    def set_values(self, value, step, lower, upper):
+        a1 = CreateNamedValue( "Value", value )
+        a2 = CreateNamedValue( "Step", step )
+        a3 = CreateNamedValue( "UpperLimit", upper )
+        a4 = CreateNamedValue( "LowerLimit", lower )
+        args = ( a1, a2, a3, a4, )
+        self.event.State = CreateControlCommand( "SetValues", args )
         return self.event
 
     def set_state(self, state ):
