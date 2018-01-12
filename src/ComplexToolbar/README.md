@@ -4,19 +4,19 @@
 The sample is based on ToolbarSample, which illustrate how to create a simpmle toolbar with a button, and ProtocolHandler,
 which create a dummy protocol that handles a specific url.
 
-* [_Addons.xcu_](Addons.xcu): The file defined a toolbar, with various kind of toolbar controls. Apart from generic options like URL, Title, Target, etc, the most important property here is ControlType, which specifies the type of the UI control. In URL you should use the protocol scheme so that it is handled by the protocol handler you implemented.
+* [*Addons.xcu*](Addons.xcu): The file defined a toolbar, with various kind of toolbar controls. Apart from generic options like URL, Title, Target, etc, the most important property here is ControlType, which specifies the type of the UI control. In URL you should use the protocol scheme so that it is handled by the protocol handler you implemented.
 
-* [_WriterWindowsState.xcu_](WriterWindowsState.xcu): This is essential for defining a toolbar, creates the resource for the toolbar.
+* [*WriterWindowsState.xcu*](WriterWindowsState.xcu): This is essential for defining a toolbar, creates the resource for the toolbar.
 
-* [_ProtocolHandler.xcu_](ProtocolHandler.xcu): The file registered "addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:\*" protocol scheme, associate the scheme with our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler".
+* [*ProtocolHandler.xcu*](ProtocolHandler.xcu): The file registered "addons.ExtendingLibreOffice.ComplexToolbar.DummyProtocol:\*" protocol scheme, associate the scheme with our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler".
 
-* [_handler.py_](handler.py): Our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler", create dispatch object that actually handles the UI control.
+* [*handler.py*](handler.py): Our protocol handler implementation "addons.ExtendingLibreOffice.ComplexToolbar.SampleHandler", create dispatch object that actually handles the UI control.
 
-* [_dispatch.py_](dispatch.py)
-
-Our dispatch object that does the real job.
+* [*dispatch.py*](dispatch.py): Our dispatch object that does the real job. I send various control command to the UI control when addStatusListener is invoked for illustration.
 
 ## Control Types
+
+Tye ControlType field I used in Addons.xcu defines the types of the control.
 
 |ControlType          |Description                                                                      |
 |---------------------|---------------------------------------------------------------------------------|
@@ -47,7 +47,8 @@ you can invoke it's statusChanged method with a FeaturedStateEvent struct, with 
 |------------------|---------------------------------------------|
 | FeatureURL       | URL of the feature                          |
 | FeatureDescriptor| Descriptive text of the function            |
-| IsEnabled        | Whether dispatch has to be requeried.       |
+| IsRequery        | Whether dispatch has to be requeried.       |
+| IsEnabled        | Whether the control is enabled.             |
 | State            | State of the feature in this dispatch       |
 
 Note that complex toolbar controllers act depending on the type of the State
@@ -59,14 +60,14 @@ Note that complex toolbar controllers act depending on the type of the State
 
 
 
-The only control command supported by _ImageButton_ is SetImage.
+The only control command supported by *ImageButton* is SetImage.
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
 | SetImage          | URL=string           |
 
 
-While _Spinfield_ support the commands below to control the behavior of the UI control:
+While *Spinfield* support the commands below to control the behavior of the UI control:
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
@@ -78,7 +79,7 @@ While _Spinfield_ support the commands below to control the behavior of the UI c
 | SetValues         | *All of the above*   |
 
 
-_Combobox_, _Dropdownbox_, _DropdownButton_, _ToggleDropdownButton_ support vairous list manipulation commands:
+*Combobox*, *Dropdownbox*, *DropdownButton*, *ToggleDropdownButton* support vairous list manipulation commands:
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
@@ -88,20 +89,20 @@ _Combobox_, _Dropdownbox_, _DropdownButton_, _ToggleDropdownButton_ support vair
 | RemoveEntryPos    | Pos=number |
 | RemoveEntryText   | Text=string |
 
-Because both _Combobox_ and _Editfied_ have an editable text field, they support SetText.
+Because both *Combobox* and *Editfied* have an editable text field, they support SetText.
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
 | SetText           | Text=string
 
 
-_Dropdownbox_ allows you to select one entry from the list.
+*Dropdownbox* allows you to select one entry from the list.
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
 | SelectEntry       | Entry=number         |
 
-_ToggleDropdownButton_ allows you to check entries on the list individually.
+*ToggleDropdownButton* allows you to check entries on the list individually.
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
@@ -112,9 +113,9 @@ _ToggleDropdownButton_ allows you to check entries on the list individually.
 TBD
 
 ## Reference
-* [Generic UNO Interfaces for complex toolbar controls](http://wiki.openoffice.org/wiki/Framework/Article/Generic_UNO_Interfaces_for_complex_toolbar_controls)
+* [Generic UNO Interfaces for complex toolbar controls](http://wiki.openoffice.org/wiki/Framework/Article/Generic*UNO_Interfaces_for_complex_toolbar*controls)
 * [XDispatch Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XDispatch.html)
 * [XStatusListener Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XStatusListener.html)
-* [FeaturedStateEvent Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1FeatureStateEvent.html#a1545061c08231d50fabef7514f9584d3)
+* [FeaturedStateEvent Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1FeatureStateEvent.html)
 * [ControlCommand Struct Reference](https://api.libreoffice.org/docs/idl/ref/structcom_1_1sun_1_1star_1_1frame_1_1ControlCommand.html)
 * [XControlNotificatioonlistener Interface Reference](https://api.libreoffice.org/docs/idl/ref/interfacecom_1_1sun_1_1star_1_1frame_1_1XControlNotificationListener.html)
