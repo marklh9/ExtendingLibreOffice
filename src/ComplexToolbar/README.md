@@ -75,7 +75,7 @@ While *Spinfield* support the commands below to control the behavior of the UI c
 | SetStep           | Step=number          |
 | SetUpperLimit     | UpperLimit=number    |
 | SetLowerLimit     | LowerLimit=number    |
-| SetOutputFormat   | Outputformat=string  |
+| SetOutputFormat   | OutputFormat=string  |
 | SetValues         | *All of the above*   |
 
 
@@ -96,13 +96,7 @@ Because both *Combobox* and *Editfied* have an editable text field, they support
 | SetText           | Text=string
 
 
-*Dropdownbox* allows you to select one entry from the list.
-
-| Supported Command | Arguments            |
-|-------------------|----------------------|
-| SelectEntry       | Entry=number         |
-
-*ToggleDropdownButton* allows you to check entries on the list individually.
+*DropdownButton* and *ToggleDropdownButton* allows you to check individual item by its position.
 
 | Supported Command | Arguments            |
 |-------------------|----------------------|
