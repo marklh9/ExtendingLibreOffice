@@ -1,0 +1,9 @@
+The sample job implement the third way to trigger a job documented
+in [1], via a com.sun.star.job:service=addons.ExtendingLibreOffice.Job1.DummyJob
+
+Important files: 
+* Addons.xcu: insert an item into the extension menu.
+* DummyJob.py: implement com.sun.star.task.Job service.
+
+https://wiki.openoffice.org/wiki/Documentation/DevGuide/WritingUNO/Jobs/Jobs
+
